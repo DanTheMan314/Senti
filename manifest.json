@@ -1,6 +1,6 @@
 {
-    "name": "My Progressive Web Application",
-    "short_name": "Progressive",
+    "name": "Senti",
+    "short_name": "Senti",
     "start_url": "/?home=true",
     "icons": [
       {
