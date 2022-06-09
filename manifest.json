@@ -1,5 +1,5 @@
 {
-    "manifest_version": 1,
+    "manifest_version": 2,
     "name": "Senti",
     "description": "Get sad",
     "version": "1.0",
