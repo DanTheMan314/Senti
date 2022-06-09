@@ -9,7 +9,7 @@
         "48":"icons/icon-48x48.png",
         "128":"icons/icon-128x128.png"
     },
-    "page_action": {
+    "action": {
         "default_icon":{
             "16": "icons/icon-16x16.png",
             "48": "icons/icon-48x48.png",
@@ -17,7 +17,7 @@
         }
     },
     "content_scripts":[{
-        "matches": ["https://www.youtube.com/*"],
+        "matches": ["https://www.google.com/*"],
         "css": ["main.css"]
     }]
 }
