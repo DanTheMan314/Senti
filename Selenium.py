@@ -4,8 +4,10 @@ import os
 import csv
 import pandas as pd
 from math import ceil
+from selenium.webdriver.chrome.service import Service
+from webdriver_manager.chrome import ChromeDriverManager
 
-csv_file = open('c:\\users\\snape\\documents\\output_scraping.csv', 'w', encoding="UTF-8", newline="")
+csv_file = open('c:\\users\\acer\\documents\\output_scraping.csv', 'w', encoding="UTF-8", newline="")
 writer = csv.writer(csv_file)
 
 writer.writerow(
@@ -13,16 +15,21 @@ writer.writerow(
      'no_of_replies','upvotes','downvotes'])
 
 youtube_pages = "https://www.youtube.com/"
-locationOfWebdriver = "C:\\Users\\snape\\Downloads\\chromedriver_win32\\chromedriver.exe"
-driver = webdriver.Chrome(locationOfWebdriver)
+locationOfWebdriver = "C:\\Users\\acer\\Downloads\\chromedriver_win32\\chromedriver.exe"
+driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()))
+#driver.get("https://www.google.com")
+#driver = webdriver.Chrome(locationOfWebdriver)
 driver.get(youtube_pages)
 time.sleep(10)
 try:
     print("=" * 40)  # Shows in terminal when youtube summary page with search keyword is being scraped
     print("Scraping " + youtube_pages)
-    search = driver.find_element_by_id('search')
+    #find_element(by=By.NAME, value=name) 
+    search = driver.find_element_by_name("search_query")
     search.send_keys("Kishore Kumar")    
-    driver.find_element_by_id('search-icon-legacy').click()
+    #driver.find_element_by_id('search-icon-legacy').click()
+    driver.find_element_by_css_selector(
+        "#search-icon-legacy.ytd-searchbox").click()
     time.sleep(20)    
     vtitle = driver.find_elements_by_id('video-title')
     subscription = driver.find_elements_by_id('byline')
