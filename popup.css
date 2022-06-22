@@ -11,6 +11,9 @@
   font-size: 16px;
   cursor: pointer;
   display: inline-block;
+  text-align: center;  
+  color: black;
+  background: rgb(247, 0, 0);
 }
 
 .btn:hover {
@@ -33,11 +36,6 @@ h2{
   left: 50%;
   -ms-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
-}
-button{
-  text-align: center;  
-  color: black;
-  background: rgb(247, 0, 0);
 }
 p {
   font-family: verdana;
