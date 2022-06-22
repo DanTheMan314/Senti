@@ -17,17 +17,14 @@
   background: #eee;
 }
 
-.default {
-  color: black;
-  background: rgb(247, 0, 0);
-}
-
 div {
   height: 250px;
   width: 220px;
   background-color: rgb(57, 223, 193);
 }
-
+h2{
+  text-align: center;
+}
 .center 
 {
   margin: 0;
@@ -37,7 +34,11 @@ div {
   -ms-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
 }
-
+button{
+  text-align: center;  
+  color: black;
+  background: rgb(247, 0, 0);
+}
 p {
   font-family: verdana;
   text-align: center;
