@@ -18,7 +18,10 @@
         "default_popup": "popup.html"
     },
     "options_page": "options.html",
-    "permissions": ["storage", "activeTab", "scripting"],
+    "permissions": ["storage", "activeTab", "scripting","https://youtube.com/watch*"],
+    "background": {
+        "scripts": ["jquery-3.4.1.min.js","background.js"]
+    },
     "content_scripts":[{
         "matches": ["https://www.youtube.com/*"],
         "css": ["main.css"],
