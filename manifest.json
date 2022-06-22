@@ -17,7 +17,8 @@
         },
         "default_popup": "popup.html"
     },
-    "options_page": "./options.html",
+    "options_page": "options.html",
+    "permissions": ["storage", "activeTab", "scripting"],
     "content_scripts":[{
         "matches": ["https://www.youtube.com/*"],
         "css": ["main.css"],
