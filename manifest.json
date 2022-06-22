@@ -1,7 +1,7 @@
 {
     "manifest_version": 3,
     "name": "Senti",
-    "description": "Get sad",
+    "description": "Emotional insights",
     "version": "1.0",
     "icons": 
     {
