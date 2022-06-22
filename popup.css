@@ -1,18 +1,31 @@
-.container {  
-  width: 300px;  
-  height: 300px;  
-  border: 5px solid red;  
-  }  
-  button {  
-  background-color: lightblue;  
-  color: black;  
-  font-size: 25px;  
-  }  
+.container {
+  width: 300px;
+  height: 300px;
+  border: 5px solid rgb(253, 181, 25);
+}
+
+.btn {
+  border: none;
+  background-color: inherit;
+  padding: 14px 28px;
+  font-size: 16px;
+  cursor: pointer;
+  display: inline-block;
+}
+
+.btn:hover {
+  background: #eee;
+}
+
+.default {
+  color: black;
+  background: rgb(247, 0, 0);
+}
 
 div {
   height: 250px;
   width: 220px;
-  background-color: powderblue;
+  background-color: rgb(57, 223, 193);
 }
 
 h2 {
@@ -21,8 +34,4 @@ h2 {
 
 p {
   font-family: verdana;
-}
-
-button{
-  align-self: center;
 }
