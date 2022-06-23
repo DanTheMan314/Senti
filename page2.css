@@ -11,7 +11,7 @@
     font-size: 16px;
     cursor: pointer;
     display: inline-block;
-    text-align: center;  
+    text-align: left;  
     color: black;
     background: rgb(247, 0, 0);
   }
@@ -24,7 +24,7 @@
     height: 250px;
     width: 220px;
     background-color: rgb(57, 223, 193);
-    text-align: center;
+    text-align: left;
   }
   h2{
     text-align: center;
