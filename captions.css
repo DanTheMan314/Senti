@@ -5,7 +5,7 @@
   }
   
   .btn5 {
-    border: 2px solid rgb(100, 7, 7);
+    border: 2px solid rgb(0, 0, 0);
     background-color: inherit;
     padding: 14px 28px;
     font-size: 16px;
@@ -13,7 +13,7 @@
     display: inline-block;
     text-align: center;  
     color: black;
-    background: rgb(247, 0, 0);
+    background: rgb(144, 52, 230);
   }
   
   .btn5:hover {
