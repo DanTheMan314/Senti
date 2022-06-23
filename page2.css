@@ -20,6 +20,38 @@
     background: #eee;
   }
   
+  .btn3 {
+    border: none;
+    background-color: inherit;
+    padding: 14px 28px;
+    font-size: 16px;
+    cursor: pointer;
+    display: inline-block;
+    text-align: left;  
+    color: black;
+    background: rgb(247, 0, 0);
+  }
+  
+  .btn3:hover {
+    background: #eee;
+  }
+
+  .btn4 {
+    border: none;
+    background-color: inherit;
+    padding: 14px 28px;
+    font-size: 16px;
+    cursor: pointer;
+    display: inline-block;
+    text-align: left;  
+    color: black;
+    background: rgb(247, 0, 0);
+  }
+  
+  .btn4:hover {
+    background: #eee;
+  }
+
   div {
     height: 250px;
     width: 220px;
@@ -40,5 +72,9 @@
   }
   p {
     font-family: verdana;
-    text-align: center;
+    text-align: left;
+  }
+  p1{
+    font-family: verdana;
+    text-align: right;
   }

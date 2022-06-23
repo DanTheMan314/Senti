@@ -1,0 +1,44 @@
+.container {
+    width: 300px;
+    height: 300px;
+    border: 5px solid rgb(253, 181, 25);
+  }
+  
+  .btn5 {
+    border: none;
+    background-color: inherit;
+    padding: 14px 28px;
+    font-size: 16px;
+    cursor: pointer;
+    display: inline-block;
+    text-align: center;  
+    color: black;
+    background: rgb(247, 0, 0);
+  }
+  
+  .btn5:hover {
+    background: #eee;
+  }
+  
+  div {
+    height: 250px;
+    width: 220px;
+    background-color: rgb(57, 223, 193);
+    text-align: center;
+  }
+  h2{
+    text-align: center;
+  }
+  .center 
+  {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+  }
+  p {
+    font-family: verdana;
+    text-align: center;
+  }
