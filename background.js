@@ -24,9 +24,11 @@ chrome.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
         }
     }
 });
+
 chrome.runtime.onMessage.addListener(async (request, sender, sendResponse) => {
     if(request.message === 'get_me_the_comments'){
         get_comments(request.videoId);
         //https://youtube.googleapis.com/youtube/v3/commentThreads?part=snippet&maxResults=100&order=relevance&textFormat=plainText&videoId=gnprhsRHSZg&key=AIzaSyCk84uaYs0NkkRpmFrKaWYmBR6_UIszRF4
     }
+    console.log("hello");
 });
