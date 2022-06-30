@@ -4,4 +4,3 @@ function handleButtonClick()
         popup: "page2.html"
     });
 }
-//btn.addEventListener("click", handleButtonClick);
