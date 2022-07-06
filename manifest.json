@@ -1,5 +1,5 @@
 {
-    "manifest_version": 3,
+    "manifest_version": 2,
     "name": "Senti",
     "description": "Emotional insights",
     "version": "1.0",
@@ -9,25 +9,12 @@
         "48":"icons/icon-48x48.png",
         "128":"icons/icon-128x128.png"
     },
-    "action": {
-        "default_icon":{
-            "16": "icons/icon-16x16.png",
-            "48": "icons/icon-48x48.png",
-            "128": "icons/icon-128x128.png"
-        },
-        "default_popup": "popup.html"
+    "background": {
+        "scripts": ["jquery-3.4.1.min.js","background.js"]
     },
     "options_page": "options.html",
-    "permissions": ["storage", "activeTab", "scripting","tabs"],
-    "host_permissions": [       
-        "https://youtube.com/watch*"
-    ],
-    "background": {
-        "service_worker": "service-worker.js"
+    "browser_action": {
+        "default_popup": "popup.html"
     },
-    "content_scripts":[{
-        "matches": ["https://www.youtube.com/watch*"],
-        "css": ["main.css"],
-        "js": ["content-script.js"]
-    }]
+    "permissions": ["storage", "tabs", "https://www.youtube.com/watch*"]
 }
