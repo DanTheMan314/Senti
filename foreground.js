@@ -71,7 +71,8 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
             queued_comments.forEach(queued_comment => {
                 if(current_playback_time == queued_comment.timestamp) {
                     console.log(queued_comment);
-                    chrome.runtime.sendMessage({message: 'print_the_comments', queued_comment});
+                    var printed = queued_comment.comment;
+                    chrome.runtime.sendMessage({message: 'print_the_comments', printed});
                     //document.write(queued_comment.comment);
                     queued_comments.splice(queued_comments.indexOf(queued_comment), 1);
                 }
