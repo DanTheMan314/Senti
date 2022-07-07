@@ -71,6 +71,7 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
             queued_comments.forEach(queued_comment => {
                 if(current_playback_time == queued_comment.timestamp) {
                     console.log(queued_comment);
+                    document.write(queued_comment.comment);
                     queued_comments.splice(queued_comments.indexOf(queued_comment), 1);
                 }
             })
