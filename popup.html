@@ -3,18 +3,25 @@
 
 <head>
   <link rel="stylesheet" href="popup.css">
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/toxicity"></script>
 </head>
 
 <body>
 
   <div class="container">
-    <div class="center">
+    <div class="top">
       <h2>Youtube Sentiment Analysis</h2>
       <p>We're still working on it</p>
       <a href="page2.html">
         <button class = "btn">Go Ahead</button>
       </a>
       <p id="insert">Comment goes here</p>
+      <div id="table-wrapper"></div>
+      <form id="classify-new">
+        <p id="analyze">Analysis</p> 
+        <button id= "classify-new-text" type="submit">Click to analyse</div>
+      </form>
     </div>
   </div>
   <script src="popup.js"></script>
