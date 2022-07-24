@@ -20,16 +20,16 @@ from sklearn.feature_extraction.text import CountVectorizer
 
 from collections import defaultdict
 
-data = pd.read_csv('CSVs\\UScommentsup.csv')
+data = pd.read_csv('CSVs\\UScomments.csv',low_memory=False)
 
 #print(data.head(10))
 
 #Preprocessing
 def remove_tags(string):
     removelist = ""
-    result = re.sub('','',string)          #remove HTML tags
+    result = re.sub('','',str(string))    #remove HTML tag
     result = re.sub('https://.*','',result)   #remove URLs
-    result = re.sub(r'[^w'+removelist+']', ' ',result)    #remove non-alphanumeric characters 
+    result = re.sub(r'[^\w'+removelist+']', ' ',result)    #remove non-alphanumeric characters 
     result = result.lower()
     return result
 data['comment_text']=data['comment_text'].apply(lambda cw : remove_tags(cw)) 
@@ -49,17 +49,22 @@ def lemmatize_text(text):
 data['comment_text'] = data.comment_text.apply(lemmatize_text)
 
 #encoding labels and making train-test split
-comments = data['comment_text'].values
+"""comments = data['comment_text'].values
 labels = data['pol'].values
 encoder = LabelEncoder()
 encoded_labels = encoder.fit_transform(labels)
 
-train_sentences, test_sentences, train_labels, test_labels = train_test_split(comments, encoded_labels, stratify = encoded_labels)
+train_sentences, test_sentences, train_labels, test_labels = train_test_split(comments, encoded_labels, stratify = encoded_labels)"""
+comments = data['comment_text'].values
+labels = data['pol'].values
+encoder = LabelEncoder()
+encoded_labels = encoder.fit_transform(labels)
+train_sentences, test_sentences, train_labels, test_labels = train_test_split(comments,labels, test_size=0.33, random_state=42)
 
 #Building Naive Bayes model
 vec = CountVectorizer(max_features = 3000) #Gets the frequency of each word
-X = vec.fit_transform(train_sentences)
-vocab = vec.get_feature_names()
+X = vec.fit_transform(train_sentences) 
+vocab = vec.get_feature_names_out()
 X = X.toarray()
 word_counts = {}
 for l in range(2):
@@ -101,7 +106,7 @@ def predict(n_label_items, vocab, word_counts, log_label_priors, labels, x):
             for l in labels:
                 log_w_given_l = laplace_smoothing(n_label_items, vocab, word_counts, word, l)
                 label_scores[l] += log_w_given_l
-                
+
         result.append(max(label_scores, key=label_scores.get))
     return result
 
