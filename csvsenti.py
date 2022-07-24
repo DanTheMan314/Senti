@@ -41,7 +41,7 @@ for i in comm.comment_text.values:
 
 #Adding the Sentiment Polarity column to the data
 comm['pol']=pol
-
+comm.to_csv("UScommentsup.csv",index=False)
 #Converting the polarity values from continuous to categorical
 """comm['pol'][comm.pol==0]= 0
 comm['pol'][comm.pol > 0]= 1
