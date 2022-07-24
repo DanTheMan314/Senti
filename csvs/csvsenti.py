@@ -17,7 +17,7 @@ warnings.filterwarnings("ignore")
 TextBlob("The movie is good").sentiment"""
 
 #Importing YouTube comments data
-comm = pd.read_csv('UScomments.csv',encoding='utf8',error_bad_lines=False);#opening the file UScomments
+comm = pd.read_csv('CSVs\\UScomments.csv',encoding='utf8',error_bad_lines=False);#opening the file UScomments
 
 """#Displaying the first 5 rows of the data
 print(comm.head(10))
@@ -27,7 +27,7 @@ print(comm.comment_text.head(10))
 print(comm.shape)"""
 
 #Extracting 1000 random samples from the data
-comm = comm.sample(2000)
+#comm = comm.sample(2000)
 
 #Calculating the Sentiment Polarity
 pol=[] # list which will contain the polarity of the comments
@@ -41,12 +41,12 @@ for i in comm.comment_text.values:
 
 #Adding the Sentiment Polarity column to the data
 comm['pol']=pol
-comm.to_csv("UScommentsup.csv",index=False)
+comm.to_csv("CSVs\\UScommentsup.csv",index=False)
 #Converting the polarity values from continuous to categorical
 """comm['pol'][comm.pol==0]= 0
 comm['pol'][comm.pol > 0]= 1
 comm['pol'][comm.pol < 0]= -1"""
-
+"""
 #Displaying the POSITIVE comments
 df_positive = comm[comm.pol>0]
 print(df_positive.head(10),'\n')
@@ -57,9 +57,10 @@ print(df_positive.head(10),'\n')
 
 #Displaying the NEUTRAL comments
 df_positive = comm[comm.pol==0]
-print(df_positive.head(10),'\n')
+print(df_positive.head(10),'\n')"""
 
 print(comm.keys())
-comm.pol.value_counts().plot.bar()
+comm.shape()
+"""comm.pol.value_counts().plot.bar()
 plt.show()
-print(comm.pol.value_counts())
+print(comm.pol.value_counts())"""
