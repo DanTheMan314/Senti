@@ -33,7 +33,7 @@ function processYouTubeData(comments){
         result => {
             const YouTubeData = [];
             $.each(comments, function( index, comment ) {
-                const comment_text = comment;
+                const comment_text = comment.comment;
                 const sentiment_score = getSentimentScore(comment_text);
                 let comment_sentiment = '';
                 if(sentiment_score > SentimentThreshold.Positive){
