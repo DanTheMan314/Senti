@@ -41,11 +41,11 @@ for i in comm.comment_text.values:
 
 #Adding the Sentiment Polarity column to the data
 comm['pol']=pol
-comm.to_csv("CSVs\\UScommentsup.csv",index=False)
 #Converting the polarity values from continuous to categorical
-"""comm['pol'][comm.pol==0]= 0
+comm['pol'][comm.pol==0]= 0
 comm['pol'][comm.pol > 0]= 1
-comm['pol'][comm.pol < 0]= -1"""
+comm['pol'][comm.pol < 0]= -1
+comm.to_csv("CSVs\\UScomments.csv",index=False)
 """
 #Displaying the POSITIVE comments
 df_positive = comm[comm.pol>0]
@@ -59,8 +59,8 @@ print(df_positive.head(10),'\n')
 df_positive = comm[comm.pol==0]
 print(df_positive.head(10),'\n')"""
 
-print(comm.keys())
+"""print(comm.keys())
 comm.shape()
-"""comm.pol.value_counts().plot.bar()
+comm.pol.value_counts().plot.bar()
 plt.show()
 print(comm.pol.value_counts())"""

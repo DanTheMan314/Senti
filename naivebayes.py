@@ -1,23 +1,13 @@
 import re
-
 import pandas as pd
-
 import numpy as np
-
 from sklearn.preprocessing import LabelEncoder
-
 from sklearn.model_selection import train_test_split
-
 from sklearn.metrics import classification_report
-
 from sklearn.metrics import accuracy_score
-
 import math
-
 import nltk
-
 from sklearn.feature_extraction.text import CountVectorizer
-
 from collections import defaultdict
 
 data = pd.read_csv('CSVs\\UScomments.csv',low_memory=False)
@@ -71,6 +61,7 @@ for l in range(2):
     word_counts[l] = defaultdict(lambda: 0)
 for i in range(X.shape[0]):
     l = train_labels[i]
+    break
     for j in range(len(vocab)):
         word_counts[l][vocab[j]] += X[i][j]
 
