@@ -43,3 +43,17 @@ padSequences(sequences, maxLen, padding = 'pre', truncating = 'pre', value = 0)
         });
     
 }
+
+predict()
+{
+    let text = this.searchText;
+    //Convert to lower case and remove all punctuations.
+    const inputText = text.trim().toLowerCase().replace(/(\.|\,|\!)/g, '').split(' ');
+    const sequence = inputText.map(word => {
+        let wordIndex = this.wordIndex[word] + this.indexFrom;
+        if(wordIndex > this.vocabularySize) {
+            wordIndex = 2;
+        }
+        return wordIndex;
+    }); //Perform truncation and padding
+}
