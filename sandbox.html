@@ -1,4 +1,21 @@
-let commentlist = [];
+<!doctype html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Twitter Sentiment Analysis</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel='stylesheet' type='text/css' media='screen' href='tens1.css'>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>  
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@1.0.0/dist/tf.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script> 
+  </head>
+  <body>
+
+
+    <script>
+      let commentlist = [];
 const urls = {
     model: 'https://storage.googleapis.com/tfjs-models/tfjs/sentiment_cnn_v1/model.json',
     metadata: 'https://storage.googleapis.com/tfjs-models/tfjs/sentiment_cnn_v1/metadata.json'
@@ -42,12 +59,9 @@ async function loadMetadata(url) {
     }
 }
 
-chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
-    if(request.message === 'here_are_your_comments'){
-        commentlist = request.comments;
-        processYouTubeData(commentlist);
-    }
-});
+window.addEventListener('message', function(event) {
+        commentlist = event.data.comments;
+        processYouTubeData(commentlist)});
 
 function processYouTubeData(commentlist){
     setupSentimentModel().then(
@@ -210,3 +224,14 @@ function YouTubeSentiment(){
      
     //getTwitterHashTagData($("#tag-input").val(), processYouTubeData);
 }
+
+      // Set up message event handler:
+      
+
+        // if we don't know the templateName requested, return an error message
+      
+     //   event.source.postMessage({'result': result}, event.origin);
+      
+    </script>
+  </body>
+</html>

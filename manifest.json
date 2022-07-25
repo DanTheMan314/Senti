@@ -16,12 +16,14 @@
     }
     ],
     "background": {
-        "scripts": ["tf.js","jquery-3.4.1.min.js","background.js","tens1.js"]
+        "scripts": ["tf.js","jquery-3.4.1.min.js","background.js"]
     },
     "options_page": "options.html",
     "browser_action": {
         "default_popup": "popup.html"
     },
-    "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'",
-    "permissions": ["storage", "tabs", "https://www.youtube.com/watch*"]
+    "permissions": ["storage", "tabs", "https://www.youtube.com/watch*"],
+    "sandbox": {
+        "pages": ["sandbox.html"]
+      }
 }
