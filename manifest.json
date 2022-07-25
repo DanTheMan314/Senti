@@ -16,7 +16,7 @@
     }
     ],
     "background": {
-        "scripts": ["tf.min.js","jquery-3.4.1.min.js","background.js","tens1.js"]
+        "scripts": ["tf.js","jquery-3.4.1.min.js","background.js","tens1.js"]
     },
     "options_page": "options.html",
     "browser_action": {
