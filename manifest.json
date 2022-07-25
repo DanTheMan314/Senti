@@ -12,7 +12,7 @@
     "content_scripts":[
         {
             "matches": ["https://www.youtube.com/watch*"],
-            "js": ["jquery-3.4.1.min.js","tens1.js"]
+            "js": ["jquery-3.4.1.min.js"]
     }
     ],
     "background": {
@@ -22,6 +22,6 @@
     "browser_action": {
         "default_popup": "popup.html"
     },
-    "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self';",
+    "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'",
     "permissions": ["storage", "tabs", "https://www.youtube.com/watch*"]
 }
