@@ -56,4 +56,13 @@ predict()
         }
         return wordIndex;
     }); //Perform truncation and padding
+
+    const paddedSequence = (this.padSequences)([sequence],this.maxLen);
+    const input = tf.tensor2d(paddedSequence,[1,this.maxLen]);
+    const predictOut = this.model.predict(input);
+    const score = predictOut.dataSync()[0];
+    predictOut.dispose();
+    const endMs = performance.now();
+
+console.log(score);
 }
