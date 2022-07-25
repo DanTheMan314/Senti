@@ -21,6 +21,12 @@ async function loadMetadata(url) {
         console.log(err);
     }
 }
+chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
+    if(request.message === 'here_are_your_comments'){
+        comments = request.comments;
+    }
+    processYouTubeData(comments)
+});
 
 function processYouTubeData(comments){
     setupSentimentModel().then(
@@ -155,5 +161,5 @@ function YouTubeSentiment(){
     $('#chartContainer').empty();
     $('.spinner-border').removeClass('d-none');
      
-    getTwitterHashTagData($("#tag-input").val(), processYouTubeData);
+    //getTwitterHashTagData($("#tag-input").val(), processYouTubeData);
 }

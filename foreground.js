@@ -55,7 +55,7 @@ function show_comment(author, comment) {
 
     animate();
 }
-
+ 
 chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
     if(request.message === 'here_are_your_comments'){
         comments = request.comments;
