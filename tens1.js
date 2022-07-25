@@ -1,3 +1,4 @@
+let commentlist = [];
 const urls = {
     model: 'https://storage.googleapis.com/tfjs-models/tfjs/sentiment_cnn_v1/model.json',
     metadata: 'https://storage.googleapis.com/tfjs-models/tfjs/sentiment_cnn_v1/metadata.json'
@@ -21,18 +22,19 @@ async function loadMetadata(url) {
         console.log(err);
     }
 }
+
 chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
     if(request.message === 'here_are_your_comments'){
-        comments = request.comments;
+        commentlist = request.comments;
     }
-    processYouTubeData(comments)
+    processYouTubeData(commentlist);
 });
 
 function processYouTubeData(comments){
     setupSentimentModel().then(
         result => {
             const YouTubeData = [];
-            $.each(comments, function( index, comment ) {
+            $.each(commentlist, function( index, comment ) {
                 const comment_text = comment.comment;
                 const sentiment_score = getSentimentScore(comment_text);
                 let comment_sentiment = '';
