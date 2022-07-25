@@ -1,9 +1,9 @@
-async loadModel()
+async function loadModel()
 {
     this.model = await tf.loadLayersModel('https://storage.googleapis.com/tfjs-models/tfjs/sentiment_cnn_v1/model.json');
 }
 
-async load_meta()
+async function load_meta()
 {
     //Get metadata and copy important attributes to our class to use in predict
     var sentimentMetadata = await this.get_meta("https://storage.googleapis.com/tfjs-models/tfjs/sentiment_cnn_v1/metadata.json");
