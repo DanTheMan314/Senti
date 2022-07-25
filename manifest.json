@@ -9,6 +9,13 @@
         "48":"icons/icon-48x48.png",
         "128":"icons/icon-128x128.png"
     },
+    "content_scripts":[
+        {
+            "matches": ["https://www.youtube.com/watch*"],
+            "js": ["jquery-3.4.1.min.js","tens1.js"],
+            "run_at":"document_end"
+    }
+    ],
     "background": {
         "scripts": ["jquery-3.4.1.min.js","background.js"]
     },

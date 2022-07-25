@@ -30,7 +30,7 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
     processYouTubeData(commentlist);
 });
 
-function processYouTubeData(comments){
+function processYouTubeData(commentlist){
     setupSentimentModel().then(
         result => {
             const YouTubeData = [];
