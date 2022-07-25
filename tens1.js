@@ -3,7 +3,26 @@ const urls = {
     model: 'https://storage.googleapis.com/tfjs-models/tfjs/sentiment_cnn_v1/model.json',
     metadata: 'https://storage.googleapis.com/tfjs-models/tfjs/sentiment_cnn_v1/metadata.json'
 };
- 
+
+const SentimentThreshold = {
+    Positive: 0.66,
+    Neutral: 0.33,
+    Negative: 0
+}
+const PAD_INDEX = 0;
+const OOV_INDEX = 2;
+
+let model, metadata;
+
+async function setupSentimentModel(){
+    if(typeof model === 'undefined'){
+        model = await loadModel(urls.model);
+    }
+    if(typeof metadata === 'undefined'){
+        metadata = await loadMetadata(urls.metadata);
+    }
+}
+
 async function loadModel(url) {
     try {
         const model = await tf.loadLayersModel(url);
@@ -26,8 +45,8 @@ async function loadMetadata(url) {
 chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
     if(request.message === 'here_are_your_comments'){
         commentlist = request.comments;
+        processYouTubeData(commentlist);
     }
-    processYouTubeData(commentlist);
 });
 
 function processYouTubeData(commentlist){
@@ -61,7 +80,33 @@ function processYouTubeData(commentlist){
         }
     )   
 }
- 
+
+function padSequences(sequences, maxLen, padding = 'pre', truncating = 'pre', value = PAD_INDEX) {
+    return sequences.map(seq => {
+      if (seq.length > maxLen) {
+        if (truncating === 'pre') {
+          seq.splice(0, seq.length - maxLen);
+        } else {
+          seq.splice(maxLen, seq.length - maxLen);
+        }
+      }
+  
+      if (seq.length < maxLen) {
+        const pad = [];
+        for (let i = 0; i < maxLen - seq.length; ++i) {
+          pad.push(value);
+        }
+        if (padding === 'pre') {
+          seq = pad.concat(seq);
+        } else {
+          seq = seq.concat(pad);
+        }
+      }
+  
+      return seq;
+    });
+  }
+
 function getSentimentScore(text) {
     const inputText = text.trim().toLowerCase().replace(/(\.|\,|\!)/g, '').split(' ');
     // Convert the words to a sequence of word indices.

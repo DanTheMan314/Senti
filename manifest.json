@@ -12,12 +12,11 @@
     "content_scripts":[
         {
             "matches": ["https://www.youtube.com/watch*"],
-            "js": ["jquery-3.4.1.min.js","tens1.js"],
-            "run_at":"document_end"
+            "js": ["jquery-3.4.1.min.js","tens1.js"]
     }
     ],
     "background": {
-        "scripts": ["jquery-3.4.1.min.js","background.js"]
+        "scripts": ["tf.min.js","jquery-3.4.1.min.js","background.js","tens1.js"]
     },
     "options_page": "options.html",
     "browser_action": {
