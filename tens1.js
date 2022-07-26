@@ -208,5 +208,4 @@ function YouTubeSentiment(){
     $('#chartContainer').empty();
     $('.spinner-border').removeClass('d-none');
      
-    //getTwitterHashTagData($("#tag-input").val(), processYouTubeData);
 }
