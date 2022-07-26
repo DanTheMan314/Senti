@@ -59,8 +59,18 @@ function show_comment(author, comment) {
 chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
     if(request.message === 'here_are_your_comments'){
         comments = request.comments;
-        
-        interval_id = setInterval(() => {
+        comments.forEach(comment => {
+            
+                console.log(comment.comment);
+                var printed = comment.comment;
+                chrome.runtime.sendMessage({message: 'print_the_comments', printed});
+                //document.write(queued_comment.comment);
+                //comments.splice(queued_comments.indexOf(queued_comment), 1);
+            
+        }); 
+    }
+    });
+        /*interval_id = setInterval(() => {
             current_playback_time = Math.floor(document.querySelector('.video-stream').currentTime);
             
             comments.forEach(comment => {
@@ -68,15 +78,6 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
                    if(!queued_comments.includes(comment)) queued_comments.push(comment);
                 }               
             });
-            queued_comments.forEach(queued_comment => {
-                if(current_playback_time == queued_comment.timestamp) {
-                    console.log(queued_comment);
-                    var printed = queued_comment.comment;
-                    chrome.runtime.sendMessage({message: 'print_the_comments', printed});
-                    //document.write(queued_comment.comment);
-                    queued_comments.splice(queued_comments.indexOf(queued_comment), 1);
-                }
-            })
+            
         }, 100);
-    }
-});
+    }*/

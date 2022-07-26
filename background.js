@@ -39,7 +39,7 @@ function parse_and_sort_comments(comments)
             comment: item.snippet.topLevelComment.snippet.textDisplay
         }
     });
-
+    /*
     const timestamp_regexp = new RegExp('[0-9]{0,2}:[0-9]{1,2}');
     filtered_comments.forEach(comment => {
         if (timestamp_regexp.test(comment.comment)) {
@@ -50,6 +50,7 @@ function parse_and_sort_comments(comments)
             });
         }
     }); 
+    
     filtered_and_sorted_comments = filtered_and_sorted_comments.map(comment => {
         let temp_array = [];
         let converted_into_seconds = 0.0;
@@ -61,7 +62,7 @@ function parse_and_sort_comments(comments)
             author: comment.author,
             comment: comment.comment
         }
-    });
+    });*/
 }
 
 chrome.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
@@ -76,7 +77,7 @@ chrome.runtime.onMessage.addListener(async (request, sender, sendResponse) => {
     if(request.message === 'get_me_the_comments'){
         await get_comments(request.videoId);
 
-        chrome.tabs.sendMessage(sender.tab.id, {message: 'here_are_your_comments', comments: filtered_and_sorted_comments});    
+        chrome.tabs.sendMessage(sender.tab.id, {message: 'here_are_your_comments', comments: filtered_comments});    
     }
 });
 //https://youtube.googleapis.com/youtube/v3/commentThreads?part=snippet&maxResults=100&order=relevance&textFormat=plainText&videoId=nlQUwD1r3sE&key=AIzaSyCk84uaYs0NkkRpmFrKaWYmBR6_UIszRF4
