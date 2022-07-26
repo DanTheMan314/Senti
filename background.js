@@ -76,7 +76,7 @@ chrome.runtime.onMessage.addListener(async (request, sender, sendResponse) => {
     if(request.message === 'get_me_the_comments'){
         await get_comments(request.videoId);
 
-        chrome.tabs.sendMessage(sender.tab.id, {message: 'here_are_your_comments', comments: filtered_comments});    
+        chrome.tabs.sendMessage(sender.tab.id, {message: 'here_are_your_comments', comments: filtered_and_sorted_comments});    
     }
 });
 //https://youtube.googleapis.com/youtube/v3/commentThreads?part=snippet&maxResults=100&order=relevance&textFormat=plainText&videoId=nlQUwD1r3sE&key=AIzaSyCk84uaYs0NkkRpmFrKaWYmBR6_UIszRF4

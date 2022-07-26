@@ -16,14 +16,11 @@
     }
     ],
     "background": {
-        "scripts": ["tf.js","jquery-3.4.1.min.js","background.js","tens1.js"]
+        "scripts": ["jquery-3.4.1.min.js","background.js"]
     },
     "options_page": "options.html",
     "browser_action": {
         "default_popup": "popup.html"
     },
-    "permissions": ["storage", "tabs", "https://www.youtube.com/watch*"],
-    "sandbox": {
-        "pages": ["sandbox.html"]
-      }
+    "permissions": ["storage", "tabs", "https://www.youtube.com/watch*"]
 }
